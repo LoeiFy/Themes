@@ -1,0 +1,240 @@
+body.done:before {
+    display: none;
+}
+#pot {
+    position: absolute;
+    background-color: grey;
+    border-radius: 50%;
+    visibility: hidden;
+    z-index: 3;
+}
+.post ul {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+}
+.post li {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.post li.imgs div {
+    width:100%;
+    height: 100%;
+    position: relative;
+    text-align: center;
+}
+.post li.imgs div:before, .post li.imgs div:after {
+    content: '';
+    width: 1%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+} 
+.post li.imgs img {
+    opacity: 0;
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 98%;
+    position: relative;
+    z-index: 3;
+    max-height: 87%;
+    width: auto;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
+.post li.imgs span {
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -7px;
+    margin-top: -7px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-animation:loading 2s ease-out forwards infinite;
+    -moz-animation:loading 2s ease-out forwards infinite;
+} 
+.post li.imgs.loaded span {
+    display: none;
+}
+.info {
+    text-align: center;
+}
+.info header {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+    font-size: 36px;
+}
+.info:before, .info:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 1%;
+}
+.info div {
+    padding-bottom: 50px;
+    width: 70%;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+}
+.info h2 {
+    text-transform: uppercase;
+    font-size: 36px;
+}
+.info a i {
+    opacity: 0;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+}
+.info h2 a:hover i {
+    opacity: .8;
+}
+.info p {
+    opacity: .8;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.info p a {
+    color: #666;
+}
+.dots {
+    position: absolute;
+    width: 100%;
+    bottom: 2%;
+    text-align: center;
+}
+.dots span {
+    display: inline-block;
+    margin: 0 5px; 
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+}
+.dots span.active {
+    width: 0;
+    height: 0;
+    border-width: 4px;
+}
+
+#container {
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    left: 0;
+}
+#container.active {
+    left: -100px;
+}
+.cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222228;
+    opacity: 0;
+    z-index: 4;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    visibility: hidden;
+    cursor: pointer;
+}
+.cover.active {
+    visibility: visible;
+    opacity: .7;
+}
+.about {
+    position: fixed;
+    top: 0px;
+    right: -320px;
+    width: 320px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 5;
+    overflow: auto;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.about.active {
+    right: 0;
+}
+.about > div {
+    width: 90%;
+    margin-top: 70px;
+    margin-left: 5%;
+}
+.about h2 {
+    color: #222228;
+    font-size: 18px;
+}
+.about h2 a {
+    color: inherit;
+    opacity: .7;
+}
+.about p {
+    color: #999;
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 24px;
+}
+.about div > a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+}
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    color: #222228;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .info header {
+        right: 3%;
+        top: 3%;
+        font-size: 30px;
+    }
+    .info div {
+        width: 90%;
+        padding-bottom: 20px;
+    }
+    .info h2 {
+        font-size: 18px;
+    }
+    .info p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+@media screen and (orientation:landscape) and (max-width: 600px) {
+    .about > div {
+        margin-top: 30px;
+    }
+    .post li.imgs img {
+        max-height: 80%;
+    }
+}
